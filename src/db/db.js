@@ -2,15 +2,16 @@ import "dotenv/config";
 import pg from "pg";
 
 const { Client } = pg;
-const client = new Client({
-    user: process.env.USER,
-    password: process.env.PGPASSWORD,
-    host: process.env.PGHOST,
-    port: process.env.PGPORT,
-    database: process.env.PGDATABASE,
-});
 
 export async function getAllActions() {
+    const client = new Client({
+        user: process.env.USER,
+        password: process.env.PGPASSWORD,
+        host: process.env.PGHOST,
+        port: process.env.PGPORT,
+        database: process.env.PGDATABASE,
+    });
+
     await client.connect();
 
     let queryResult;
