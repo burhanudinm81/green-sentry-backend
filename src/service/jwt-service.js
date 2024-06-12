@@ -9,7 +9,6 @@ export class JWTService {
             const token = await jwt.sign(payload, process.env.SECRET_KEY, {
                 expiresIn
             });
-            console.log(token);
             return token;
         } catch (error) {
             throw error;
@@ -21,7 +20,7 @@ export class JWTService {
         const user = await DBService.findIdAndEmail(id, email);
 
         if (user) {
-            return { isValid: true }
+            return { isValid: true };
         }
 
         return { isValid: false };

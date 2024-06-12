@@ -107,5 +107,3 @@ export class DBService {
         }
     }
 };
-
-DBService.findIdAndEmail('vYQylzzPKCTa5nt2V82hQ', 'genzow1@mail.com');
