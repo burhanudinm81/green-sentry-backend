@@ -1,5 +1,8 @@
 import Hapi from "@hapi/hapi";
 import hapiAuthJwt2 from "hapi-auth-jwt2";
+import Inert from "@hapi/inert";
+import Vision from "@hapi/vision";
+import HapiSwagger from "hapi-swagger";
 import { routes } from "./routes.js";
 import { JWTService } from "../service/jwt-service.js";
 
@@ -9,7 +12,18 @@ const server = Hapi.server({
 });
 
 await server.register([
-    hapiAuthJwt2
+    hapiAuthJwt2,
+    Inert,
+    Vision,
+    {
+        plugin: HapiSwagger,
+        options: {
+            info: {
+                title: 'Green Sentry API Documentation',
+                version: '1.0.0'
+            }
+        }
+    }
 ]);
 
 server.auth.strategy('jwt', 'jwt', {

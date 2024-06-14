@@ -29,13 +29,8 @@ export async function getActionList(request, h) {
         response.type("application/json");
         return response;
     } catch (error) {
-        console.log(error);
-
-        const response = h.response({
-            status: "Error",
-            message: "Internal server error"
-        });
-        response.code(500);
+        console.error(error);
+        throw Boom.badImplementation();
     }
 }
 
@@ -70,13 +65,8 @@ export async function register(request, h) {
         response.type("application/json");
         return response;
     } catch (error) {
-        console.log(error);
-
-        const response = h.response({
-            status: "Error",
-            message: "Internal server error"
-        });
-        response.code(500);
+        console.error(error);
+        throw Boom.badImplementation();
     }
 }
 
@@ -104,7 +94,7 @@ export async function login(request, h) {
 
     const response = h.response({
         status: 'OK',
-        message: 'Login logged in successfully',
+        message: 'User logged in successfully',
         token: token
     });
 

@@ -20,7 +20,7 @@ export class DBService {
             const { rowCount: totalResult, rows: result } = queryResult;
             return { totalResult, result };
         } catch (error) {
-            console.error(error);
+            throw error;
         } finally {
             await client.end();
         }
@@ -54,7 +54,7 @@ export class DBService {
             const result = queryResult.rows[0];
             return result;
         } catch (error) {
-            console.error(error);
+            throw error;
         } finally {
             await client.end();
         }
@@ -77,7 +77,7 @@ export class DBService {
             const result = queryResult.rows[0];
             return result;
         } catch (error) {
-            console.error(error);
+            throw error;
         } finally {
             await client.end();
         }
@@ -101,7 +101,7 @@ export class DBService {
             const result = queryResult.rows[0];
             return result;
         } catch (error) {
-            console.error(error);
+            throw error;;
         } finally {
             await client.end();
         }
