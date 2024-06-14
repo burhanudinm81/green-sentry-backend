@@ -7,7 +7,7 @@ import { routes } from "./routes.js";
 import { JWTService } from "../service/jwt-service.js";
 
 const server = Hapi.server({
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 3000,
 });
 
